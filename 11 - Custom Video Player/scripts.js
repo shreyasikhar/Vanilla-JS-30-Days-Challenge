@@ -46,6 +46,8 @@ function scrub(e)
 function handleScreen()
 {
     video.requestFullscreen();
+    // to exit full screen
+    // document.exitFullscreen();
 }
 
 // Hook up the event listeners
