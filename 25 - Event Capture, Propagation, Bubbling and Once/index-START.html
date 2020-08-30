@@ -13,6 +13,8 @@
     </div>
   </div>
 
+  <button>Button</button>
+
 <style>
   html {
     box-sizing: border-box;
@@ -42,7 +44,27 @@
 
 <button></button>
 <script>
+  const divs = document.querySelectorAll('div');
+  const button = document.querySelector('button');
 
+  function logText(e)
+  {
+    console.log(this.classList.value);
+    // e.stopPropagation();    // stops bubbling
+  }
+  divs.forEach(div => div.addEventListener('click', logText, {
+    capture: false
+  }));
+  // capture: true means in this case, it goes to outermost div and calls function
+  // by default capture is false
+
+  button.addEventListener('click', () => {
+    console.log('Click!');
+    }, {
+    once: true
+  });
+  // once: true means in this case, button click event will occur once
+  // by default, once is false
 </script>
 </body>
 </html>
